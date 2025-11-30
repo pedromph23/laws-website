@@ -47,10 +47,17 @@
         }
 
         .navbar-brand {
+            display: flex;
+            align-items: center;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 1.5rem;
             color: var(--accent-color) !important;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .navbar-nav .nav-link {
@@ -365,6 +372,11 @@
             margin-top: 3rem;
         }
 
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .podcast-title {
@@ -395,7 +407,10 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" class="logo-img" href="index.html">Machines that Decide</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo-img">
+                Machines that Decide
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -441,7 +456,16 @@
                         A complete look at the research, development, and design process of our website
                         on Lethal Autonomous Weapons. In this special episode, the team shares their experiences,
                         challenges, and lessons learned during the creation of this educational project.
+                    </p>
                 </div>
+                
+                <!-- Reproductor de audio para M3U -->
+                <audio id="podcastAudio" preload="metadata">
+                    <source src="podcast/podcast.m3u" type="audio/mpegurl">
+                    <source src="podcast/podcast.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                
                 <div class="audio-controls">
                     <div class="secondary-controls">
                         <button class="secondary-btn" id="rewindBtn">
@@ -465,7 +489,7 @@
                     
                     <span class="time" id="currentTime">0:00</span>
                     <span class="time">/</span>
-                    <span class="time" id="duration">15:32</span>
+                    <span class="time" id="duration">0:00</span>
                     
                     <div class="secondary-controls">
                         <button class="secondary-btn" id="volumeBtn">
@@ -477,12 +501,108 @@
         </div>
     </section>
 
+    <!-- Episodios del Podcast -->
+    <section class="episodes-section">
+        <div class="container">
+            <h2 class="section-title">All Episodes</h2>
+            
+            <div class="episode-card">
+                <div class="episode-header">
+                    <div>
+                        <h3 class="episode-title">Episode 1: Introduction to LAWS</h3>
+                        <div class="episode-meta">
+                            <span><i class="far fa-calendar"></i> Oct 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 22:15</span>
+                        </div>
+                    </div>
+                    <span class="badge bg-primary">New</span>
+                </div>
+                <p class="episode-description">
+                    In this first episode, we explore the basic concepts of Lethal Autonomous Weapons (LAWS), 
+                    their history and the different types that currently exist or are under development.
+                </p>
+                <div class="episode-controls">
+                    <button class="episode-play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="episode-duration">22:15</span>
+                </div>
+            </div>
+            
+            <div class="episode-card">
+                <div class="episode-header">
+                    <div>
+                        <h3 class="episode-title">Episode 2: The Ethical Debate</h3>
+                        <div class="episode-meta">
+                            <span><i class="far fa-calendar"></i> Oct 22, 2023</span>
+                            <span><i class="far fa-clock"></i> 28:42</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="episode-description">
+                    We delve into the main ethical dilemmas posed by LAWS, from responsibility 
+                    to the dehumanization of war, with interviews with military ethics experts.
+                </p>
+                <div class="episode-controls">
+                    <button class="episode-play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="episode-duration">28:42</span>
+                </div>
+            </div>
+            
+            <div class="episode-card">
+                <div class="episode-header">
+                    <div>
+                        <h3 class="episode-title">Episode 3: International Perspectives</h3>
+                        <div class="episode-meta">
+                            <span><i class="far fa-calendar"></i> Oct 29, 2023</span>
+                            <span><i class="far fa-clock"></i> 31:18</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="episode-description">
+                    We analyze the different positions of countries around the world regarding the regulation 
+                    of LAWS and diplomatic efforts in international organizations such as the UN.
+                </p>
+                <div class="episode-controls">
+                    <button class="episode-play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="episode-duration">31:18</span>
+                </div>
+            </div>
+            
+            <div class="episode-card">
+                <div class="episode-header">
+                    <div>
+                        <h3 class="episode-title">Episode 4: The Technology Behind</h3>
+                        <div class="episode-meta">
+                            <span><i class="far fa-calendar"></i> Nov 5, 2023</span>
+                            <span><i class="far fa-clock"></i> 25:05</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="episode-description">
+                    A technical look at the AI systems, sensors and algorithms that make LAWS possible, 
+                    with accessible explanations to understand how these technologies work.
+                </p>
+                <div class="episode-controls">
+                    <button class="episode-play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="episode-duration">25:05</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Equipo del Podcast -->
     <section class="team-section">
         <div class="container">
             <h2 class="team-title">Our Team</h2>
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="team-member">
                         <div class="member-avatar">
                             <i class="fas fa-user"></i>
@@ -491,7 +611,7 @@
                         <p class="member-role">Principal Investigator</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="team-member">
                         <div class="member-avatar">
                             <i class="fas fa-user"></i>
@@ -500,7 +620,7 @@
                         <p class="member-role">Web Developer</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="team-member">
                         <div class="member-avatar">
                             <i class="fas fa-user"></i>
@@ -509,13 +629,58 @@
                         <p class="member-role">Podcast Producer</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="team-member">
                         <div class="member-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4 class="member-name">Alyorka Ortíz</h4>
                         <p class="member-role">Graphic Designer</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="member-name">Keiner Durán</h4>
+                        <p class="member-role">Content Researcher</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="member-name">Yohander Lozada</h4>
+                        <p class="member-role">Technical Writer</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="member-name">Jeremy Morán</h4>
+                        <p class="member-role">Audio Editor</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="member-name">Jhaili Rojas</h4>
+                        <p class="member-role">UI/UX Designer</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4 class="member-name">José Lapeira</h4>
+                        <p class="member-role">Project Coordinator</p>
                     </div>
                 </div>
             </div>
@@ -528,7 +693,7 @@
             <img src="images/logo.png" alt="Logo" class="footer-logo">
             <p>&copy; 2025 Machines That Decide - An educational project on Lethal Autonomous Weapons</p>
             <p class="mt-2">
-                <a href="index.html" class="text-light me-3">Inicio</a> | 
+                <a href="index.html" class="text-light me-3">Home</a> | 
                 <a href="index.html#referencias" class="text-light mx-3">References</a> | 
                 <a href="podcast.html" class="text-light ms-3">Podcast</a>
             </p>
@@ -538,8 +703,9 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simulación de reproductor de podcast
+        // Reproductor de podcast real para archivos M3U
         document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('podcastAudio');
             const playBtn = document.getElementById('playBtn');
             const rewindBtn = document.getElementById('rewindBtn');
             const forwardBtn = document.getElementById('forwardBtn');
@@ -552,40 +718,51 @@
             let isPlaying = false;
             let isMuted = false;
             
-            // Botón de reproducción principal
+            // Actualizar duración cuando se cargan los metadatos
+            audio.addEventListener('loadedmetadata', function() {
+                const totalMinutes = Math.floor(audio.duration / 60);
+                const totalSeconds = Math.floor(audio.duration % 60);
+                duration.textContent = `${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+            });
+            
+            // Botón de reproducción
             playBtn.addEventListener('click', function() {
-                isPlaying = !isPlaying;
-                const icon = playBtn.querySelector('i');
-                
                 if (isPlaying) {
-                    icon.classList.remove('fa-play');
-                    icon.classList.add('fa-pause');
-                    simulatePlayback();
+                    audio.pause();
                 } else {
-                    icon.classList.remove('fa-pause');
-                    icon.classList.add('fa-play');
+                    audio.play();
                 }
             });
             
-            // Botón de retroceso
-            rewindBtn.addEventListener('click', function() {
-                let currentWidth = parseFloat(progressBar.style.width) || 0;
-                let newWidth = Math.max(0, currentWidth - 10);
-                progressBar.style.width = `${newWidth}%`;
-                updateTimeDisplay(newWidth);
+            // Actualizar estado de reproducción
+            audio.addEventListener('play', function() {
+                isPlaying = true;
+                const icon = playBtn.querySelector('i');
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
             });
             
-            // Botón de avance
+            audio.addEventListener('pause', function() {
+                isPlaying = false;
+                const icon = playBtn.querySelector('i');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            });
+            
+            // Botón de retroceso (10 segundos)
+            rewindBtn.addEventListener('click', function() {
+                audio.currentTime = Math.max(0, audio.currentTime - 10);
+            });
+            
+            // Botón de avance (10 segundos)
             forwardBtn.addEventListener('click', function() {
-                let currentWidth = parseFloat(progressBar.style.width) || 0;
-                let newWidth = Math.min(100, currentWidth + 10);
-                progressBar.style.width = `${newWidth}%`;
-                updateTimeDisplay(newWidth);
+                audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
             });
             
             // Botón de volumen
             volumeBtn.addEventListener('click', function() {
                 isMuted = !isMuted;
+                audio.muted = isMuted;
                 const icon = volumeBtn.querySelector('i');
                 
                 if (isMuted) {
@@ -597,15 +774,25 @@
                 }
             });
             
+            // Actualizar barra de progreso
+            audio.addEventListener('timeupdate', function() {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Actualizar tiempo actual
+                const currentMinutes = Math.floor(audio.currentTime / 60);
+                const currentSeconds = Math.floor(audio.currentTime % 60);
+                currentTime.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
+            });
+            
             // Control de progreso al hacer clic
             progressContainer.addEventListener('click', function(e) {
                 const rect = this.getBoundingClientRect();
                 const clickX = e.clientX - rect.left;
                 const width = rect.width;
-                const percentage = (clickX / width) * 100;
+                const percentage = clickX / width;
                 
-                progressBar.style.width = `${percentage}%`;
-                updateTimeDisplay(percentage);
+                audio.currentTime = percentage * audio.duration;
             });
             
             // Botones de reproducción de episodios
@@ -626,44 +813,11 @@
                 });
             });
             
-            function simulatePlayback() {
-                let progress = parseFloat(progressBar.style.width) || 0;
-                const totalDuration = 932; // 15:32 en segundos
-                
-                const interval = setInterval(() => {
-                    if (isPlaying && progress < 100) {
-                        progress += 100 / (totalDuration / 2); // Avance más rápido para demo
-                        progressBar.style.width = `${progress}%`;
-                        updateTimeDisplay(progress);
-                    } else if (!isPlaying) {
-                        clearInterval(interval);
-                    } else if (progress >= 100) {
-                        clearInterval(interval);
-                        isPlaying = false;
-                        const icon = playBtn.querySelector('i');
-                        icon.classList.remove('fa-pause');
-                        icon.classList.add('fa-play');
-                    }
-                }, 500);
-            }
-            
-            function updateTimeDisplay(percentage) {
-                const totalSeconds = 932; // 15:32 en segundos
-                const currentSeconds = Math.floor((percentage / 100) * totalSeconds);
-                const minutes = Math.floor(currentSeconds / 60);
-                const seconds = currentSeconds % 60;
-                currentTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                
-                // Actualizar duración total (solo una vez)
-                if (duration.textContent === '15:32') {
-                    const totalMinutes = Math.floor(totalSeconds / 60);
-                    const totalSecs = totalSeconds % 60;
-                    duration.textContent = `${totalMinutes}:${totalSecs.toString().padStart(2, '0')}`;
-                }
-            }
-            
-            // Inicializar tiempo total
-            duration.textContent = '15:32';
+            // Manejo de errores de audio
+            audio.addEventListener('error', function(e) {
+                console.error('Error loading audio:', e);
+                alert('Error loading the podcast. Please check if the file exists in the podcast folder.');
+            });
         });
     </script>
 </body>
