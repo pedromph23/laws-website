@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lethal Autonomous Weapons</title>
+    <title>Máquinas que Deciden - Armas Autónomas Letales</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="images\favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
-            --primary-color: #606a72;
+            --primary-color: #0a0a0a;
             --secondary-color: #1a1a2e;
             --accent-color: #00ffff;
             --accent-secondary: #ff6b35;
@@ -38,9 +38,9 @@
             font-weight: 700;
         }
 
-        /* Pie de Página */
+        /* Navegación */
         .navbar {
-            background-color: rgba(88, 85, 85, 0.9);
+            background-color: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             transition: var(--transition);
@@ -379,30 +379,159 @@
         }
 
         /* Sección Podcast */
-        .podcast-preview {
+        .podcast-section {
             background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
             text-align: center;
             padding: 5rem 0;
         }
 
-        .podcast-btn {
+        .podcast-player {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .audio-wave {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            margin-bottom: 2rem;
+        }
+
+        .wave-bar {
+            width: 8px;
+            height: 40px;
             background: var(--accent-color);
-            color: var(--primary-color);
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin: 0 4px;
+            border-radius: 4px;
+            animation: wave 1.5s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { animation-delay: 0.7s; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1.8); }
+        }
+
+        .podcast-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .podcast-info h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .podcast-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-top: 2rem;
         }
 
-        .podcast-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        .control-btn {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        .secondary-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .secondary-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 0 1.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .time {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            min-width: 40px;
+        }
+
+        .podcast-link {
+            margin-top: 2rem;
+        }
+
+        .podcast-link a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .podcast-link a:hover {
+            text-decoration: underline;
         }
 
         /* Sección Referencias */
@@ -460,6 +589,16 @@
                 right: 5%;
                 text-align: center;
             }
+            
+            .audio-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .progress-container {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
@@ -468,21 +607,21 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="images\logo.png" alt="Logo" class="logo-img">
-                Machines that Decide
+                <img src="logo.png" alt="Logo" class="logo-img">
+                Máquinas que Deciden
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Start</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#definicion">Definition</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#problemas">Ethical Issues</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#soluciones">Solutions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#articulos">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#definicion">Definición</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#problemas">Problemas Éticos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#soluciones">Soluciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articulos">Artículos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#podcast">Podcast</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#referencias">References</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#referencias">Referencias</a></li>
                 </ul>
             </div>
         </div>
@@ -498,27 +637,27 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/carousel-1.jpg" class="d-block w-100 carousel-img" alt="Tecnología militar y autonomía">
+                    <img src="carousel-1.jpg" class="d-block w-100 carousel-img" alt="Tecnología militar y autonomía">
                     <div class="carousel-caption">
-                        <h1 class="carousel-title">Machines that Decide</h1>
-                        <p class="carousel-text">Exploring the controversial future of Lethal Autonomous Weapons and their ethical implications for humanity.</p>
-                        <button class="carousel-btn" onclick="scrollToSection('definicion')">Explore</button>
+                        <h1 class="carousel-title">Máquinas que Deciden</h1>
+                        <p class="carousel-text">Explorando el futuro controvertido de las Armas Autónomas Letales y sus implicaciones éticas para la humanidad.</p>
+                        <button class="carousel-btn" onclick="scrollToSection('definicion')">Explorar</button>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/carousel-2.jpg" class="d-block w-100 carousel-img" alt="Sistemas autónomos">
+                    <img src="https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" class="d-block w-100 carousel-img" alt="Sistemas autónomos">
                     <div class="carousel-caption">
-                        <h1 class="carousel-title">Technology and Ethics</h1>
-                        <p class="carousel-text">Analyzing the moral dilemmas that arise when we delegate life or death decisions to autonomous systems.</p>
-                        <button class="carousel-btn" onclick="scrollToSection('problemas')">Discover</button>
+                        <h1 class="carousel-title">Tecnología y Ética</h1>
+                        <p class="carousel-text">Analizando los dilemas morales que surgen cuando delegamos decisiones de vida o muerte a sistemas autónomos.</p>
+                        <button class="carousel-btn" onclick="scrollToSection('problemas')">Descubrir</button>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/carousel-3.jpg" class="d-block w-100 carousel-img" alt="Inteligencia artificial">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" class="d-block w-100 carousel-img" alt="Inteligencia artificial">
                     <div class="carousel-caption">
-                        <h1 class="carousel-title">The Future of War</h1>
-                        <p class="carousel-text">Understanding how LAWS are transforming armed conflict and global security.</p>
-                        <button class="carousel-btn" onclick="scrollToSection('soluciones')">Learn More</button>
+                        <h1 class="carousel-title">El Futuro de la Guerra</h1>
+                        <p class="carousel-text">Comprendiendo cómo las LAWS están transformando los conflictos armados y la seguridad global.</p>
+                        <button class="carousel-btn" onclick="scrollToSection('soluciones')">Saber Más</button>
                     </div>
                 </div>
             </div>
@@ -534,31 +673,31 @@
     <!-- Sección Definición -->
     <section id="definicion" class="content-section">
         <div class="container">
-            <h2 class="section-title text-center">What are LAWS?</h2>
-            <p class="section-subtitle">Lethal Autonomous Weapons (LAWS) represent one of the most controversial technological developments of our time, challenging our conceptions of warfare, ethics, and human control.</p>
+            <h2 class="section-title text-center">¿Qué son las LAWS?</h2>
+            <p class="section-subtitle">Las Armas Autónomas Letales (LAWS) representan uno de los desarrollos tecnológicos más polémicos de nuestro tiempo, desafiando nuestras concepciones sobre guerra, ética y control humano.</p>
             
             <div class="definition-section">
                 <div class="definition-content">
                     <div class="definition-img">
-                        <img src="images/carousel-3.jpg" alt="Drone militar autónomo">
+                        <img src="https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Drone militar autónomo">
                     </div>
                     <div class="definition-text">
-                        <h2>Definition of Lethal Autonomous Weapons</h2>
-                        <p>Lethal Autonomous Weapons (LAWS) are weapon systems that, once activated, can select and attack targets without direct human intervention.</p>
-                        <p>These systems use algorithms and artificial intelligence to identify targets and make decisions about the use of lethal force, operating independently after being deployed.</p>
+                        <h2>Definición de Armas Autónomas Letales</h2>
+                        <p>Las Armas Autónomas Letales (LAWS, por sus siglas en inglés) son sistemas de armamento que, una vez activados, pueden seleccionar y atacar objetivos sin intervención humana directa.</p>
+                        <p>Estos sistemas utilizan algoritmos e inteligencia artificial para identificar objetivos y tomar decisiones sobre el uso de fuerza letal, operando de manera independiente después de ser desplegados.</p>
                         
                         <div class="definition-features">
                             <div class="feature-item">
-                                <h4>Autonomy</h4>
-                                <p>Ability to operate without direct human control in the selection and attack of targets.</p>
+                                <h4>Autonomía</h4>
+                                <p>Capacidad de operar sin control humano directo en la selección y ataque de objetivos.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Lethality</h4>
-                                <p>Designed specifically to cause physical harm and death to targets.</p>
+                                <h4>Letalidad</h4>
+                                <p>Diseñadas específicamente para causar daño físico y la muerte de objetivos.</p>
                             </div>
                             <div class="feature-item">
-                                <h4>Artificial intelligence</h4>
-                                <p>They use advanced algorithms for real-time decision making.</p>
+                                <h4>Inteligencia Artificial</h4>
+                                <p>Utilizan algoritmos avanzados para la toma de decisiones en tiempo real.</p>
                             </div>
                         </div>
                     </div>
@@ -570,40 +709,40 @@
     <!-- Sección Problemas Éticos -->
     <section id="problemas" class="content-section ethics-section">
         <div class="container">
-            <h2 class="section-title text-center">Ethical Issues</h2>
-            <p class="section-subtitle">The development and use of autonomous weapons systems raises serious ethical dilemmas that require careful consideration by global society.</p>
+            <h2 class="section-title text-center">Problemas Éticos</h2>
+            <p class="section-subtitle">El desarrollo y uso de sistemas de armas autónomas plantea serios dilemas éticos que requieren una consideración cuidadosa por parte de la sociedad global.</p>
             
             <div class="ethics-cards">
                 <div class="ethics-card">
                     <div class="ethics-icon">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3>Responsibility</h3>
-                    <p>Who is responsible when an autonomous system makes a mistake that results in civilian casualties? The traditional chain of command becomes blurred with systems that make decisions independently.</p>
+                    <h3>Responsabilidad</h3>
+                    <p>¿Quién es responsable cuando un sistema autónomo comete un error que resulta en víctimas civiles? La cadena de mando tradicional se vuelve difusa con sistemas que toman decisiones de forma independiente.</p>
                 </div>
                 
                 <div class="ethics-card">
                     <div class="ethics-icon">
                         <i class="fas fa-user-shield"></i>
                     </div>
-                    <h3>Discrimination</h3>
-                    <p>Can autonomous systems adequately distinguish between combatants and non-combatants? The lack of contextual human judgment could lead to violations of international humanitarian law.</p>
+                    <h3>Discriminación</h3>
+                    <p>¿Pueden los sistemas autónomos distinguir adecuadamente entre combatientes y no combatientes? La falta de juicio humano contextual podría llevar a violaciones del derecho internacional humanitario.</p>
                 </div>
                 
                 <div class="ethics-card">
                     <div class="ethics-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Dehumanization</h3>
-                    <p>Delegating life-or-death decisions to machines could lower psychological barriers to the use of force, facilitating conflict and diminishing the perceived value of human life.</p>
+                    <h3>Deshumanización</h3>
+                    <p>La delegación de decisiones de vida o muerte a máquinas podría reducir las barreras psicológicas para el uso de la fuerza, facilitando conflictos y disminuyendo el valor percibido de la vida humana.</p>
                 </div>
                 
                 <div class="ethics-card">
                     <div class="ethics-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Arms Race</h3>
-                    <p>Competition between nations to develop more advanced LAWS could destabilize the geopolitical balance and lead to a dangerous proliferation of these technologies.</p>
+                    <h3>Carrera Armamentística</h3>
+                    <p>La competencia entre naciones por desarrollar LAWS más avanzadas podría desestabilizar el equilibrio geopolítico y llevar a una proliferación peligrosa de estas tecnologías.</p>
                 </div>
             </div>
         </div>
@@ -612,40 +751,40 @@
     <!-- Sección Soluciones Propuestas -->
     <section id="soluciones" class="content-section solutions-section">
         <div class="container">
-            <h2 class="section-title text-center">Proposed Solutions</h2>
-            <p class="section-subtitle">Different approaches have been proposed to address the challenges posed by lethal autonomous weapons, ranging from outright bans to targeted regulatory frameworks.</p>
+            <h2 class="section-title text-center">Soluciones Propuestas</h2>
+            <p class="section-subtitle">Diferentes enfoques han sido propuestos para abordar los desafíos planteados por las armas autónomas letales, desde la prohibición total hasta marcos regulatorios específicos.</p>
             
             <div class="solutions-grid">
                 <div class="solution-card">
                     <div class="solution-icon">
                         <i class="fas fa-ban"></i>
                     </div>
-                    <h3>Total Ban</h3>
-                    <p>Some organizations and countries advocate for a complete ban on the development and use of fully autonomous weapons systems, similar to the bans on chemical and biological weapons.</p>
+                    <h3>Prohibición Total</h3>
+                    <p>Algunas organizaciones y países abogan por una prohibición completa del desarrollo y uso de sistemas de armas completamente autónomos, similar a las prohibiciones de armas químicas y biológicas.</p>
                 </div>
                 
                 <div class="solution-card">
                     <div class="solution-icon">
                         <i class="fas fa-user-check"></i>
                     </div>
-                    <h3>Meaningful Human Control</h3>
-                    <p>Establish that any use of lethal force must be under meaningful human control, keeping people in the critical decision-making loop.</p>
+                    <h3>Control Humano Significativo</h3>
+                    <p>Establecer que cualquier uso de fuerza letal debe estar bajo control humano significativo, manteniendo a las personas en el circuito de toma de decisiones críticas.</p>
                 </div>
                 
                 <div class="solution-card">
                     <div class="solution-icon">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3>International Regulatory Framework</h3>
-                    <p>Develop international treaties and standards that regulate the development and use of LAWS, establishing clear limits and verification mechanisms.</p>
+                    <h3>Marco Regulatorio Internacional</h3>
+                    <p>Desarrollar tratados y normas internacionales que regulen el desarrollo y uso de LAWS, estableciendo límites claros y mecanismos de verificación.</p>
                 </div>
                 
                 <div class="solution-card">
                     <div class="solution-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Principles of Ethical Design</h3>
-                    <p>Incorporate ethical considerations from the design phase of these systems, including mechanisms for transparency, auditability, and operational limits.</p>
+                    <h3>Principios de Diseño Ético</h3>
+                    <p>Incorporar consideraciones éticas desde la fase de diseño de estos sistemas, incluyendo mecanismos de transparencia, auditabilidad y límites operacionales.</p>
                 </div>
             </div>
         </div>
@@ -660,7 +799,7 @@
             <div class="articles-grid">
                 <div class="article-card">
                     <div class="article-image">
-                        <img src="images/carousel-1.jpg" alt="Artículo 1">
+                        <img src="https://images.unsplash.com/photo-1589256469067-ea99122bbdc4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Artículo 1">
                     </div>
                     <div class="article-content">
                         <h3>El Futuro de la Guerra: ¿Máquinas o Humanos?</h3>
@@ -672,7 +811,7 @@
                 
                 <div class="article-card">
                     <div class="article-image">
-                        <img src="images/carousel-3.jpg" alt="Artículo 2">
+                        <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Artículo 2">
                     </div>
                     <div class="article-content">
                         <h3>Ética en la Programación de Sistemas Letales</h3>
@@ -684,7 +823,7 @@
                 
                 <div class="article-card">
                     <div class="article-image">
-                        <img src="images/carousel-2.jpg" alt="Artículo 3">
+                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Artículo 3">
                     </div>
                     <div class="article-content">
                         <h3>Inteligencia Artificial y Derecho Internacional</h3>
@@ -698,19 +837,80 @@
     </section>
 
     <!-- Sección Podcast -->
-    <section id="podcast" class="podcast-preview">
+    <section id="podcast" class="content-section podcast-section">
         <div class="container">
-            <h2 class="section-title">Behind the Project</h2>
-            <p class="section-subtitle">Listen to our voice behind the "Machines that Decide" project</p>
-            <p>In our podcast, we explore in depth the topics covered on this website, with interviews with experts, detailed analysis, and discussions about the future of autonomous weapons.</p>
-            <button class="podcast-btn" onclick="window.location.href='podcast.html'">Listen to Podcast</button>
+            <h2 class="section-title text-center">Nuestro Podcast</h2>
+            <p class="section-subtitle">Escucha nuestro análisis en profundidad sobre las Armas Autónomas Letales</p>
+            
+            <div class="podcast-player">
+                <div class="audio-wave">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
+                <div class="podcast-info">
+                    <h2>Creando "Máquinas que Deciden"</h2>
+                    <p class="podcast-description">
+                        Un recorrido completo por el proceso de investigación, desarrollo y diseño de nuestra página web 
+                        sobre Armas Autónomas Letales. En este episodio especial, el equipo comparte sus experiencias, 
+                        desafíos y aprendizajes durante la creación de este proyecto educativo.
+                    </p>
+                </div>
+                
+                <!-- Reproductor de audio real -->
+                <audio id="podcastAudio" preload="metadata">
+                    <source src="podcast.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                
+                <div class="audio-controls">
+                    <div class="secondary-controls">
+                        <button class="secondary-btn" id="rewindBtn">
+                            <i class="fas fa-backward-step"></i>
+                        </button>
+                    </div>
+                    
+                    <button class="control-btn" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    
+                    <div class="secondary-controls">
+                        <button class="secondary-btn" id="forwardBtn">
+                            <i class="fas fa-forward-step"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    
+                    <span class="time" id="currentTime">0:00</span>
+                    <span class="time">/</span>
+                    <span class="time" id="duration">0:00</span>
+                    
+                    <div class="secondary-controls">
+                        <button class="secondary-btn" id="volumeBtn">
+                            <i class="fas fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="podcast-link">
+                    <p><a href="podcast.html">Escuchar más episodios y ver la lista completa</a></p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Sección Referencias -->
     <section id="referencias" class="content-section references-section">
         <div class="container">
-            <h2 class="section-title text-center">References</h2>
+            <h2 class="section-title text-center">Referencias</h2>
             
             <div class="references-content">
                 <ul class="references-list">
@@ -727,9 +927,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <img src="images/logo.png" alt="Logo" class="footer-logo">
-            <p>&copy; 2025 Machines That Decide - An educational project on Lethal Autonomous Weapons</p>
-            <p class="mt-2">Jesús Obrero University Institute</p>
+            <img src="logo.png" alt="Logo" class="footer-logo">
+            <p>&copy; 2023 Máquinas que Deciden - Proyecto educativo sobre Armas Autónomas Letales</p>
+            <p class="mt-2">Instituto Universitario Jesús Obrero</p>
         </div>
     </footer>
 
@@ -790,6 +990,97 @@
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(el);
+            });
+            
+            // Reproductor de podcast real
+            const audio = document.getElementById('podcastAudio');
+            const playBtn = document.getElementById('playBtn');
+            const rewindBtn = document.getElementById('rewindBtn');
+            const forwardBtn = document.getElementById('forwardBtn');
+            const volumeBtn = document.getElementById('volumeBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progressContainer = document.getElementById('progressContainer');
+            const currentTime = document.getElementById('currentTime');
+            const duration = document.getElementById('duration');
+            
+            let isPlaying = false;
+            let isMuted = false;
+            
+            // Actualizar duración cuando se cargan los metadatos
+            audio.addEventListener('loadedmetadata', function() {
+                const totalMinutes = Math.floor(audio.duration / 60);
+                const totalSeconds = Math.floor(audio.duration % 60);
+                duration.textContent = `${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+            });
+            
+            // Botón de reproducción
+            playBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                } else {
+                    audio.play();
+                }
+            });
+            
+            // Actualizar estado de reproducción
+            audio.addEventListener('play', function() {
+                isPlaying = true;
+                const icon = playBtn.querySelector('i');
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+            });
+            
+            audio.addEventListener('pause', function() {
+                isPlaying = false;
+                const icon = playBtn.querySelector('i');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+            });
+            
+            // Botón de retroceso (10 segundos)
+            rewindBtn.addEventListener('click', function() {
+                audio.currentTime = Math.max(0, audio.currentTime - 10);
+            });
+            
+            // Botón de avance (10 segundos)
+            forwardBtn.addEventListener('click', function() {
+                audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+            });
+            
+            // Botón de volumen
+            volumeBtn.addEventListener('click', function() {
+                isMuted = !isMuted;
+                audio.muted = isMuted;
+                const icon = volumeBtn.querySelector('i');
+                
+                if (isMuted) {
+                    icon.classList.remove('fa-volume-high');
+                    icon.classList.add('fa-volume-mute');
+                } else {
+                    icon.classList.remove('fa-volume-mute');
+                    icon.classList.add('fa-volume-high');
+                }
+            });
+            
+            // Actualizar barra de progreso
+            audio.addEventListener('timeupdate', function() {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Actualizar tiempo actual
+                const currentMinutes = Math.floor(audio.currentTime / 60);
+                const currentSeconds = Math.floor(audio.currentTime % 60);
+                currentTime.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')}`;
+            });
+            
+            // Control de progreso al hacer clic
+            progressContainer.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                const percentage = clickX / width;
+                
+                audio.currentTime = percentage * audio.duration;
             });
         });
     </script>
